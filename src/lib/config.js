@@ -29,3 +29,10 @@ module.exports.getQueueName = function () {
 module.exports.getEventStoreService = function () {
     return 'http://event-store';
 };
+
+/**
+ * @returns {string}
+ */
+module.exports.getEventStoreStream = function () {
+    return 'repo-monitor';
+};

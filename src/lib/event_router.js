@@ -3,7 +3,6 @@ var Config = require('./config'),
     request = require('request'),
     uuid = require('node-uuid');
 
-
 /**
  * @param sub subscribe object
  * @param pub publish object
@@ -11,32 +10,28 @@ var Config = require('./config'),
  */
 module.exports.handle = function(sub, pub, event) {
 
+    /**
+     * POST event objects as json inside an array
+     *
+     * @type {{url: string, headers: {Content-Type: string}, body: string}}
+     */
     var options = {
-        url : Config.getEventStoreService() + '/streams/repo-monitor',
+        url : Config.getEventStoreService() + '/streams/' + Config.getEventStoreStream(),
         headers : {
             'Content-Type': 'application/vnd.eventstore.events+json'
         },
-        body : JSON.stringify([{
-            eventType: event.name,
-            eventId: uuid.v4(),
-            data: event.data
-        }])
+        body : JSON.stringify([
+            {
+                eventType: event.name,
+                eventId: uuid.v4(),
+                data: event.data
+            }
+        ])
     };
-
-    //var event_store_uri = Config.getEventStoreService() + '/streams/events';
-    //var data = {
-    //    eventType: event.name,
-    //    eventId: uuid.v4(),
-    //    data: event.data,
-    //    version: event.version
-    //};
-    //
-    //var headers = {'Content-Type': 'application/vnd.eventstore.events+json'};
 
     request.post(options, function(err, response){
         if (err) {
             logger.error(err);
         }
     });
-
 };
