@@ -11,7 +11,7 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - docker build -t timjr/update .
+    - docker build -t timjr/eventstoreclient .
     - mkdir -p ~/docker; docker save timjr/eventstoreclient > ~/docker/image.tar
 
 test:
