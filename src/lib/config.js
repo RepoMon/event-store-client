@@ -17,6 +17,7 @@ module.exports.getQueueContext = function() {
 };
 
 /**
+ * should get this from an env var
  * @returns {string}
  */
 module.exports.getQueueName = function () {
@@ -24,6 +25,7 @@ module.exports.getQueueName = function () {
 };
 
 /**
+ * should get this from an env var
  * @returns {string}
  */
 module.exports.getEventStoreService = function () {
@@ -31,6 +33,16 @@ module.exports.getEventStoreService = function () {
 };
 
 /**
+ * should get this from an env var
+ * @returns {string}
+ */
+module.exports.getEventStorePort = function () {
+    return '2113';
+};
+
+
+/**
+ * should get this from an env var
  * @returns {string}
  */
 module.exports.getEventStoreStream = function () {

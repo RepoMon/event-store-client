@@ -16,7 +16,7 @@ module.exports.handle = function(sub, pub, event) {
      * @type {{url: string, headers: {Content-Type: string}, body: string}}
      */
     var options = {
-        url : Config.getEventStoreService() + '/streams/' + Config.getEventStoreStream(),
+        url : Config.getEventStoreService() + ':' + Config.getEventStorePort() + '/streams/' + Config.getEventStoreStream(),
         headers : {
             'Content-Type': 'application/vnd.eventstore.events+json'
         },
