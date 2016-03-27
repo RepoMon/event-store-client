@@ -10,7 +10,7 @@ context.on('ready', function() {
 
     logger.info('connected');
 
-    logger.info('Running director service');
+    logger.info('Running event store client service');
 
     var sub = context.socket('SUB'),
         pub = context.socket('PUB');

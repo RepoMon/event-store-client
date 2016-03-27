@@ -27,7 +27,7 @@ module.exports.getQueueName = function () {
  * @returns {string}
  */
 module.exports.getEventStoreService = function () {
-    return 'http://event-store';
+    return 'http://eventstore';
 };
 
 /**

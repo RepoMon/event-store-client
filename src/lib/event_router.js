@@ -31,7 +31,7 @@ module.exports.handle = function(sub, pub, event) {
 
     request.post(options, function(err, response){
         if (err) {
-            logger.error(err);
+            logger.error(JSON.stringify(options) + ' ' + err);
         }
     });
 };
